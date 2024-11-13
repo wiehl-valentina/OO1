@@ -1,0 +1,2 @@
+UML: 
+	-En diagrama de clases se ponen los getters y setters como métodos de la clase?
