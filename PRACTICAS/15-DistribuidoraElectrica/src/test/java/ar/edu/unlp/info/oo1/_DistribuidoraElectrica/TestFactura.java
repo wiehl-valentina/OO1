@@ -29,16 +29,16 @@ class TestFactura {
 	
 	@Test 
 	void testGetBonificacion() {
-		assertEquals(0, factura1.getBonificacion());
-		assertEquals(1000, factura2.getBonificacion());
-		assertEquals(0, factura3.getBonificacion());
+		assertEquals(0, factura1.getBonificacion()); // fdp < 0.8
+		assertEquals(1000, factura2.getBonificacion()); // fdp > 0.8
+		assertEquals(0, factura3.getBonificacion()); // fdp = 0.8
 	}
 	
 	@Test
 	void testGetMontoFinal() {
-		assertEquals(6500, factura1.getMontoFinal());
-		assertEquals(9000, factura2.getMontoFinal());
-		assertEquals(10000, factura3.getMontoFinal());
+		assertEquals(6500, factura1.getMontoFinal()); // fdp < 0.8
+		assertEquals(9000, factura2.getMontoFinal()); // fdp > 0.8
+		assertEquals(10000, factura3.getMontoFinal()); // fdp = 0.8
 	}
 
 	@Test

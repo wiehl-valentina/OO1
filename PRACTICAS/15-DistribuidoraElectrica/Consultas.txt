@@ -1,0 +1,10 @@
+Implementación:
+	-Está bien que la clase consumo calcule el valor de la bonificación?
+	-Está bien implementar lógica en el constructor de factura?
+	-Está bien que factura tengo como atributos al usuario y al consumo?
+
+Test:
+	-Tiene sentido testear el facturarConsumo()?
+	-Tiene sentido testear el constructor?
+	-Tiene sentido el test de cuadro tarifario?
+	
