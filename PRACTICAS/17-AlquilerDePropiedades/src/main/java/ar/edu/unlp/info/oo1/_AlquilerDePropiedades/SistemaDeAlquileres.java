@@ -44,10 +44,10 @@ public class SistemaDeAlquileres {
 	}
 	
 	public void cancelarReserva(Reserva reserva) {
-		this.usuarios.stream()
-		.filter(usuario -> usuario.buscarReserva(reserva)).findAny().orElse(null).eliminarReserva(reserva);
-		this.propiedades.stream()
-		.filter(propiedad -> propiedad.buscarReserva(reserva)).findAny().orElse(null).eliminarReserva(reserva);
+		if (reserva.inicioPosteriorAFechaActual()) {
+			this.usuarios.stream().forEach(usuario -> usuario.eliminarReserva(reserva));
+			this.propiedades.stream().forEach(propiedad -> propiedad.eliminarReserva(reserva));
+		}
 	}
 	
 	public double calcularIngresosPropietario(Usuario usuario, DateLapse periodo) {

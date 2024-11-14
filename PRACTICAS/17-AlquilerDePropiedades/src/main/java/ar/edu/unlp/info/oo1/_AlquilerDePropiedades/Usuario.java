@@ -54,9 +54,8 @@ public class Usuario {
 		this.reservas.remove(reserva);
 	}
 	
-	public boolean buscarReserva(Reserva reserva) {
-		return this.reservas.stream()
-		.anyMatch(res -> res.equals(reserva));
+	public ArrayList<Reserva> getReservas() {
+		return this.reservas; 
 	}
 	
 	public void agregarPropiedad(Propiedad propiedad) {

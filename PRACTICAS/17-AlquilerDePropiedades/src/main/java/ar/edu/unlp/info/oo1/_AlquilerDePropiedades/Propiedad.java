@@ -8,7 +8,7 @@ public class Propiedad {
 	private String nombre;
 	private double precioPorNoche;
 	private Usuario propietario;
-	private List<Reserva> reservas; 
+	private ArrayList<Reserva> reservas; 
 	
 	public Propiedad() {
 		this.reservas = new ArrayList<Reserva>();
@@ -68,9 +68,8 @@ public class Propiedad {
 		this.reservas.remove(reserva); 
 	}
 	
-	public boolean buscarReserva(Reserva reserva) {
-		return this.reservas.stream()
-		.anyMatch(res -> res.equals(reserva));
+	public ArrayList<Reserva> getReservas() {
+		return this.reservas; 
 	}
 	
 	public double calcularIngresosPropiedad(DateLapse periodo) {

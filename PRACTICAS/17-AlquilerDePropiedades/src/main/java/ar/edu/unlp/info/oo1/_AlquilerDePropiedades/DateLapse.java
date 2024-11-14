@@ -42,4 +42,8 @@ public class DateLapse {
 		return this.includesDate(other.getFrom()) || this.includesDate(other.getTo()) || this.equalsFrom(other.getFrom()) || this.equalsTo(other.getTo());
 	}
 	
+	public boolean laterFrom() {
+		return this.from.isAfter(LocalDate.now());
+	}
+	
 }

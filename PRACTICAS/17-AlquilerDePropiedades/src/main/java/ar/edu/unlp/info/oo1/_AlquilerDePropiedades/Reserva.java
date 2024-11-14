@@ -14,4 +14,8 @@ public class Reserva {
 	public boolean overlaps(DateLapse periodo) {
 		return this.periodo.overlaps(periodo);
 	}
+	
+	public boolean inicioPosteriorAFechaActual() {
+		return this.periodo.laterFrom();
+	}
 }
