@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 class DisponibilidadTest {
 	private SistemaDeAlquileres sistema; 
 	private Propiedad propiedad; 
-	private Usuario propietario;
+	private Usuario propietario, usuario;
 	private DateLapse periodo1, periodo2; 
 	private Reserva res; 
 	
@@ -18,10 +18,11 @@ class DisponibilidadTest {
 	void setUp() {
 		sistema = new SistemaDeAlquileres(); 
 		propietario = new Usuario("Valentina Wiehl", "Calle 34 568", 123);
-		propiedad = new Propiedad("Depto 2 personas MDQ", "Córdoba 1060", 30000, propietario);
+		propiedad = new Propiedad("Depto 2 personas MDQ", "Córdoba 1060", 30000, propietario, new PoliticaFlexible());
+		usuario = new Usuario("Juan Lopez", "Calle 55 532", 456);
 		periodo1 = new DateLapse(LocalDate.now(), LocalDate.now().plusDays(5));
 		periodo2 = new DateLapse(LocalDate.now().plusDays(20), LocalDate.now().plusDays(40));
-		res = new Reserva(periodo2);
+		res = new Reserva(periodo2, propiedad, usuario);
 		propiedad.agregarReserva(res);
 	}
 	

@@ -18,8 +18,8 @@ public class SistemaDeAlquileres {
 		return nuevoUser; 
 	}
 	
-	public Propiedad registrarPropiedad(String nombre, String direccion, double precio, Usuario propietario) {
-		Propiedad propiedad = new Propiedad(nombre, direccion, precio, propietario);
+	public Propiedad registrarPropiedad(String nombre, String direccion, double precio, Usuario propietario, Politica politicaReembolso) {
+		Propiedad propiedad = new Propiedad(nombre, direccion, precio, propietario, politicaReembolso);
 		this.propiedades.add(propiedad);
 		this.usuarios.stream()
 		.filter(usuario -> usuario.equals(propietario))
@@ -35,7 +35,7 @@ public class SistemaDeAlquileres {
 	
 	public Reserva realizarReserva(Propiedad propiedad, DateLapse periodo, Usuario usuario) {
 		if (propiedad.consultarDisponibilidad(periodo)) {
-			Reserva reserva = new Reserva(periodo);
+			Reserva reserva = new Reserva(periodo, propiedad, usuario);
 			usuario.agregarReserva(reserva);
 			propiedad.agregarReserva(reserva);
 			return reserva;
@@ -43,11 +43,16 @@ public class SistemaDeAlquileres {
 		return null; 
 	}
 	
-	public void cancelarReserva(Reserva reserva) {
+	public double cancelarReserva(Reserva reserva) {
 		if (reserva.inicioPosteriorAFechaActual()) {
+			double reembolso = reserva.getPropiedad().calcularReembolso(reserva);
+			// elimina reserva en lista de usuarios 
 			this.usuarios.stream().forEach(usuario -> usuario.eliminarReserva(reserva));
+			// elimina reserva en lista de propiedades 
 			this.propiedades.stream().forEach(propiedad -> propiedad.eliminarReserva(reserva));
+			return reembolso; 
 		}
+		return -1; 
 	}
 	
 	public double calcularIngresosPropietario(Usuario usuario, DateLapse periodo) {

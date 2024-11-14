@@ -9,18 +9,20 @@ public class Propiedad {
 	private double precioPorNoche;
 	private Usuario propietario;
 	private ArrayList<Reserva> reservas; 
+	private Politica politicaReembolso; 
 	
 	public Propiedad() {
 		this.reservas = new ArrayList<Reserva>();
 	}
 	
-	public Propiedad(String nombre, String direccion, double precio, Usuario propietario) {
+	public Propiedad(String nombre, String direccion, double precio, Usuario propietario, Politica politicaReembolso) {
 		this.nombre = nombre;
 		this.direccion = direccion; 
 		this.precioPorNoche = precio;
 		this.propietario = propietario;
 		this.reservas = new ArrayList<Reserva>(); 
 		this.propietario.agregarPropiedad(this);
+		this.politicaReembolso = politicaReembolso; 
 	}
 	
 	public String getDireccion() {
@@ -55,6 +57,14 @@ public class Propiedad {
 		this.propietario = propietario; 
 	}
 	
+	public Politica getPoliticaReembolso() {
+		return politicaReembolso;
+	}
+
+	public void setPoliticaReembolso(Politica politicaReembolso) {
+		this.politicaReembolso = politicaReembolso;
+	}
+
 	public boolean consultarDisponibilidad(DateLapse periodo) {
 		return this.reservas.stream()
 		.noneMatch((reserva -> reserva.overlaps(periodo)));
@@ -66,6 +76,10 @@ public class Propiedad {
 	
 	public void eliminarReserva(Reserva reserva) {
 		this.reservas.remove(reserva); 
+	}
+	
+	public double calcularReembolso(Reserva reserva) {
+		return this.politicaReembolso.reembolsar(reserva, this.calcularPrecioReserva(reserva));
 	}
 	
 	public ArrayList<Reserva> getReservas() {

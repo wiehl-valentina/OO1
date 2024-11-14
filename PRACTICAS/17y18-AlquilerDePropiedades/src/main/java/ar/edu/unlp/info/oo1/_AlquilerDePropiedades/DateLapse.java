@@ -39,9 +39,9 @@ public class DateLapse {
 	}
 	
 	public boolean overlaps (DateLapse other) {
-		return this.includesDate(other.getFrom()) || this.includesDate(other.getTo()) || this.equalsFrom(other.getFrom()) || this.equalsTo(other.getTo());
+		return other.includesDate(this.getFrom()) || other.includesDate(this.getTo()) || other.equalsFrom(this.getFrom()) || other.equalsTo(this.getTo());
 	}
-	
+		
 	public boolean laterFrom() {
 		return this.from.isAfter(LocalDate.now());
 	}
