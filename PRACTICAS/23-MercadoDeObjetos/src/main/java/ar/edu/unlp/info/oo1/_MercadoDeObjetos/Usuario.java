@@ -1,5 +1,4 @@
 package ar.edu.unlp.info.oo1._MercadoDeObjetos;
-import java.util.*; 
 
 public abstract class Usuario {
 	private String nombre;

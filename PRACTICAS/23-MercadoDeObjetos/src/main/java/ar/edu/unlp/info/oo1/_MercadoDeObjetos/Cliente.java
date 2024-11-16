@@ -15,7 +15,7 @@ public class Cliente extends Usuario{
 		return this.pedidos; 
 	}
 	
-	public void hacerPedido(Pago tipoPago, Envio tipoEnvio, Producto producto, int cantidad) {
+	public void realizarPedido(Pago tipoPago, Envio tipoEnvio, Producto producto, int cantidad) {
 		if (producto.getUnidadesDisponibles() >= cantidad) {
 			Pedido pedido = new Pedido(this, tipoPago, tipoEnvio, producto, cantidad);
 			this.pedidos.add(pedido); 
