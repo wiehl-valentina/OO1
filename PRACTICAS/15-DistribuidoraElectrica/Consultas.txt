@@ -1,10 +1,21 @@
 Implementación:
 	-Está bien que la clase consumo calcule el valor de la bonificación?
-	-Está bien implementar lógica en el constructor de factura?
 	-Está bien que factura tengo como atributos al usuario y al consumo?
 
 Test:
+
+	Consumo: se identifica una partición. Consumo con bonificación y sin bonificación.
+		calcularBonificación:
+			*Valores de borde: *fpd > 0.9 
+					   *fdp <= 0.8	
+	-Tiene sentido estear calcularConsumo() y calcularFactorDePotencia()?
+
+	Factura: se identifica una partición. Factura con bonificación y sin bonificación.
+		getMontoFinal: 
+			*Valores de borde: *fdp > 0.9
+					   *fdp <= 0.8
+	-Tiene sentido testear fechaDeEmision()?
+
 	-Tiene sentido testear el facturarConsumo()?
-	-Tiene sentido testear el constructor?
-	-Tiene sentido el test de cuadro tarifario?
+	-Tiene sentido testear constructores?
 	

@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class EnvioInternacional extends Envio{
 	
 	// CONSTRUCTOR
-	public EnvioInternacional(LocalDate fechaDespacho, String dirOrigen, String dirDestino, double pesoEnGramos) {
+	public EnvioInternacional(LocalDate fechaDespacho, String dirOrigen, String dirDestino, int pesoEnGramos) {
 		super(fechaDespacho, dirOrigen, dirDestino, pesoEnGramos); 
 	}
 	

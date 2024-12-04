@@ -5,29 +5,31 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TestConsumo {
-	private Consumo consumo1; 
-	private Consumo consumo2; 
+	private Consumo consumoSinBonificacion; 
+	private Consumo consumoConBonificacion; 
 	private CuadroTarifario cuadro; 
 	
 	@BeforeEach
 	void setUp() {
-		consumo1 = new Consumo(65,105);
-		consumo2 = new Consumo(100,60);
-		cuadro = new CuadroTarifario(); 
+		cuadro = new CuadroTarifario();
+		consumoConBonificacion = new Consumo(cuadro, 100, 46);
+		consumoSinBonificacion = new Consumo(cuadro, 100, 75);
 	}
 
 	@Test
 	void testCalcularConsumo() {
-		assertEquals(6500, consumo1.calcularConsumo(cuadro));
+		assertEquals(10000, consumoSinBonificacion.calcularConsumo());
 	}
 	
 	@Test
 	void testCalcularFactorDePotencia() {
-		assertEquals(0.85, consumo2.calcularFactorDePotencia());
+		assertEquals(0.9, consumoConBonificacion.calcularFactorDePotencia());
+		assertEquals(0.8, consumoSinBonificacion.calcularFactorDePotencia());
 	}
 
 	@Test
 	void testCalcularBonificacion() {
-		assertEquals(1000, consumo2.calcularBonificacion(cuadro));
+		assertEquals(1000, consumoConBonificacion.calcularBonificacion()); // fdp > 0.8
+		assertEquals(0, consumoSinBonificacion.calcularBonificacion()); // fdp <= 0.8
 	}
 }

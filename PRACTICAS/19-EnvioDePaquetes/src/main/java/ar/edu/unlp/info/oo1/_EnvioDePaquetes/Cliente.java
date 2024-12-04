@@ -27,6 +27,10 @@ public abstract class Cliente {
 	public List<Envio> getEnvios() {
 		return envios;
 	}
+	
+	public int getId() {
+		return id; 
+	}
 
 	public void agregarEnvio(Envio envio) {
 		this.envios.add(envio);

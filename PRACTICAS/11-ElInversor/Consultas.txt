@@ -1,0 +1,3 @@
+Inversiones: asumo que como el cálculo "es fijo" no hay particiones a tener en cuenta. Se testea igual el método "calcularTotal"?
+
+Inversor: si se modela que la lista de inversiones va de [0..*] se identifica una partición: inversor sin inversiones e inversor con inversiones. En este caso se testea el método "valorActual" para ambos casos? Es necesario testear agregarInversion siendo que la operación que realiza es tan simple?

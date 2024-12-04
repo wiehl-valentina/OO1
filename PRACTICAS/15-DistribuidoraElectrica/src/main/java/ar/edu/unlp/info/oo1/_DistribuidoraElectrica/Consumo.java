@@ -2,17 +2,21 @@ package ar.edu.unlp.info.oo1._DistribuidoraElectrica;
 
 public class Consumo {
 	private double energiaActiva;
-	private double energiaReactiva; 
+	private double energiaReactiva;
+	private CuadroTarifario cuadro; 
 	
-	public Consumo() {}
+	public Consumo(CuadroTarifario cuadro) {
+		this.cuadro = cuadro; 
+	}
 	
-	public Consumo(double energiaActiva, double energiaReactiva) {
+	public Consumo(CuadroTarifario cuadro, double energiaActiva, double energiaReactiva) {
+		this.cuadro = cuadro; 
 		this.energiaActiva = energiaActiva;
 		this.energiaReactiva = energiaReactiva; 
 	}
 	
-	public double calcularConsumo(CuadroTarifario cuadro) {
-		return this.energiaActiva*cuadro.getPrecio();
+	public double calcularConsumo() {
+		return this.energiaActiva*this.cuadro.getPrecio();
 	}
 	
 	public double calcularFactorDePotencia() {
@@ -20,7 +24,10 @@ public class Consumo {
 		return Math.floor(res*100.0)/100.0; 
 	}
 	
-	public double calcularBonificacion(CuadroTarifario cuadro) {
-		return this.calcularConsumo(cuadro)*0.10;
+	public double calcularBonificacion() {
+		if (this.calcularFactorDePotencia() > 0.8) 
+			return this.calcularConsumo()*0.10;
+		else
+			return 0; 
 	}
 }

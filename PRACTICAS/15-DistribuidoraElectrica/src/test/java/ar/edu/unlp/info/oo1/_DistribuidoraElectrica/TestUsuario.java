@@ -6,40 +6,22 @@ import org.junit.jupiter.api.Test;
 
 class TestUsuario {
 	private Usuario usuario; 
-	private Consumo consumo1;
-	private Consumo consumo2; 
-	private Consumo consumo3;
+	private Consumo consumoConBonificacion;
+	private Consumo consumoSinBonificacion; 
+	private CuadroTarifario cuadro; 
 	
 	@BeforeEach 
 	void setUp() {
-		consumo1 = new Consumo(65,105);
-		consumo2 = new Consumo(100,60);
-		consumo3 = new Consumo(100, 75); 
+		cuadro = new CuadroTarifario(); 
+		consumoConBonificacion = new Consumo(cuadro, 100, 46);
+		consumoSinBonificacion = new Consumo(cuadro, 100, 75);
 		usuario = new Usuario("Valentina Wiehl", "Calle 50 345");
-		usuario.agregarConsumo(consumo3);
-		usuario.agregarConsumo(consumo1);
-		usuario.agregarConsumo(consumo2);
-	}
-
-	@Test
-	void testConstructor() {
-		assertEquals("Valentina Wiehl", usuario.getNombre());
-		assertEquals("Calle 50 345", usuario.getDomicilio());
-	}
-	
-	@Test
-	void testAgregarConsumo() {
-		assertEquals(3, usuario.getConsumos().size());
+		usuario.agregarConsumo(consumoConBonificacion);
+		usuario.agregarConsumo(consumoSinBonificacion);
 	}
 	
 	@Test
 	void testGetUltimoConsumo() {
-		assertEquals(consumo2, usuario.getUltimoConsumo());
-	}
-	
-	@Test 
-	void testFacturarConsumo() {
-		assertEquals(consumo2, usuario.facturarConsumo().getConsumo());
-		assertEquals(usuario, usuario.facturarConsumo().getUsuario());
+		assertEquals(consumoSinBonificacion, usuario.getUltimoConsumo());
 	}
 }

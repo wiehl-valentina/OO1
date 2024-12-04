@@ -1,0 +1,4 @@
+1- Es necesario testear constructores de todas las subclases de Pieza?
+2- Se testen los métodos getVolumen y getSuperficie para cada subclase?
+3- En el caso del Reporte, consideramos una partición si el reporte tiene 0 piezas? Si consideramos la partición, tomamos un reporte con una sola pieza como valor de borde?
+4- Se testea el getVolumen y getSuperficie de reporte? Teniendo en cuenta la partición?
