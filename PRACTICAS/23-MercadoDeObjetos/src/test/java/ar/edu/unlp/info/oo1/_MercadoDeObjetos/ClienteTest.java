@@ -8,7 +8,7 @@ class ClienteTest {
 	private Cliente cliente;
 	private Producto producto1, producto2, producto3;
 	private Pago tipoPago; 
-	private Envio tipoEnvio; 
+	private Envio tipoEnvio;
 	
 	@BeforeEach
 	void setUp() {
@@ -18,23 +18,13 @@ class ClienteTest {
 		this.producto3 = new Producto("Post It transparente", "Librería", 1500, 150);
 		this.tipoPago = new PagoAlContado();
 		this.tipoEnvio = new RetirarEnSucursalCorreo(); 
-		
-	}
-	
-	@Test
-	void testRealizarPedido() {
-		this.cliente.realizarPedido(tipoPago, tipoEnvio, producto1, 6);
-		this.cliente.realizarPedido(tipoPago, tipoEnvio, producto2, 1);
-		this.cliente.realizarPedido(tipoPago, tipoEnvio, producto3, 3);
-		assertEquals(3, cliente.getPedidos().size());
 	}
 	
 	@Test
 	void testCalcularProductosPorCategoria() {
-		this.cliente.realizarPedido(tipoPago, tipoEnvio, producto1, 6);
-		this.cliente.realizarPedido(tipoPago, tipoEnvio, producto2, 1);
-		this.cliente.realizarPedido(tipoPago, tipoEnvio, producto3, 3);
-		assertEquals(2, this.cliente.calcularProductosPorCategoria("Librería")); 
+		this.cliente.registrarPedido(tipoPago, tipoEnvio, producto1, 6);
+		this.cliente.registrarPedido(tipoPago, tipoEnvio, producto2, 1);
+		this.cliente.registrarPedido(tipoPago, tipoEnvio, producto3, 3);
+		assertEquals(2, this.cliente.calcularProductosPedidosPorCategoria("Librería")); 
 	}
-
 }

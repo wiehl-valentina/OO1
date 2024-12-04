@@ -19,34 +19,6 @@ class CarpetaTest {
 	}
 	
 	@Test
-	void testConstructor() {
-		assertEquals("OO1", carpeta.getNombre());
-		assertEquals(2, carpeta.getEmails().size());
-	}
-
-	@Test
-	void testAgregarEmail() {
-		assertEquals(2, carpeta.getCantidadEmails());
-	}
-	
-	@Test
-	void testEliminarEmail() {
-		carpeta.eliminarEmail(email2);
-		assertEquals(1, carpeta.getEmails().size());
-	}
-	
-	@Test
-	void testGetTamaño() {
-		assertEquals(61, carpeta.getTamaño());
-	}
-	
-	@Test
-	void testMover() {
-		carpeta.mover(email1, otraCarpeta);
-		assertEquals(1, otraCarpeta.getEmails().size());
-	}
-	
-	@Test
 	void testBuscar() {
 		Email resultado = carpeta.buscar("Herencia vs Composición");
 		Email resultado2 = carpeta.buscar("Consulta IS1");

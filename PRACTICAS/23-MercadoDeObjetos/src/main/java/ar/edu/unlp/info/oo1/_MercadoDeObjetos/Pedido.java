@@ -1,14 +1,14 @@
 package ar.edu.unlp.info.oo1._MercadoDeObjetos;
 
 public class Pedido {
-	private Usuario cliente;
+	private Cliente cliente;
 	private Pago tipoDePago;
 	private Envio tipoDeEnvio; 
 	private Producto producto; 
 	private int cantidad; 
 	
 	// CONSTRUCTOR
-	public Pedido(Usuario cliente, Pago tipoPago, Envio tipoEnvio, Producto producto, int cantidad) {
+	public Pedido(Cliente cliente, Pago tipoPago, Envio tipoEnvio, Producto producto, int cantidad) {
 		this.cliente = cliente;
 		this.tipoDePago = tipoPago; 
 		this.tipoDeEnvio = tipoEnvio; 
@@ -39,6 +39,7 @@ public class Pedido {
 	public double calcularPrecio() {
 		return this.producto.getPrecio()*this.cantidad; 
 	}
+	
 	
 	public double calcularCostoTotal() {
 		return this.tipoDePago.calcularCosto(this.calcularPrecio()+this.tipoDeEnvio.calcularCosto());

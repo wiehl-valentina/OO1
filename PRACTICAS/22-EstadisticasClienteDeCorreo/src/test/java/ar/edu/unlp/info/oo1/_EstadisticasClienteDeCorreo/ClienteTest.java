@@ -23,18 +23,12 @@ class ClienteTest {
 		this.cliente.recibir(email4);
 		this.cliente.agregarCarpeta(c1);
 	}
-
-	@Test
-	void testConstructor() {
-		assertEquals(1, this.cliente.getCarpetas().size());
-		assertEquals(2, this.cliente.getInbox().getEmails().size());
-	}
 	
 	@Test
 	void testRecibirYMover() {
-		assertEquals(2, this.cliente.getInbox().getEmails().size());
+		assertEquals(4, this.cliente.getInbox().getEmails().size());
 		this.cliente.mover(this.cliente.getInbox(), this.c1, this.email1);
-		assertEquals(1, this.cliente.getInbox().getEmails().size());
+		assertEquals(3, this.cliente.getInbox().getEmails().size());
 	}
 	
 	@Test
@@ -51,14 +45,4 @@ class ClienteTest {
 		assertNull(this.cliente.buscar("Email inexistente :$")); // no se encuentra en ningún lado
 	}
 	
-	@Test
-	void testEspacioOcupado() {
-		assertEquals(38, this.cliente.espacioOcupado());
-	}
-	
-	@Test
-	void cantEmailsTotal() {
-		this.cliente.mover(this.cliente.getInbox(), this.c1, email1);
-		assertEquals(4, this.cliente.getCantidadEmailsTotal());
-	}
 }

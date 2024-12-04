@@ -1,0 +1,13 @@
+*PedidoTest:
+	*calcularCostoTotal(): 
+		*2 particiones pago: pago en 6 cuotas o pago al contado | 3 particiones envío: envío a domicilio, retiro en comercio, retiro en correo
+			*casos de prueba: 
+				-pago en 6 cuotas con envío a domicilio
+				-pago en 6 cuotas con retiro en comercio
+				-pago en 6 cuotas con retiro en correo
+				-pago al contado con envío a domicilio
+				-pago al contado con retiro en comercio
+				-pago al contado con retiro en correo	
+
+*ClienteTest:
+	es necesario testear el método que calcula cantidad de productos de una categoría pedidos?

@@ -15,15 +15,19 @@ public class Cliente extends Usuario{
 		return this.pedidos; 
 	}
 	
-	public void realizarPedido(Pago tipoPago, Envio tipoEnvio, Producto producto, int cantidad) {
+	public void agregarPedido(Pedido pedido) {
+		this.pedidos.add(pedido); 
+	}
+	
+	public void registrarPedido(Pago tipoPago, Envio tipoEnvio, Producto producto, int cantidad) {
 		if (producto.getUnidadesDisponibles() >= cantidad) {
 			Pedido pedido = new Pedido(this, tipoPago, tipoEnvio, producto, cantidad);
-			this.pedidos.add(pedido); 
+			this.agregarPedido(pedido);
 			producto.actualizarStock(cantidad);
 		}
 	}
 	
-	public int calcularProductosPorCategoria(String categoria) {
+	public int calcularProductosPedidosPorCategoria(String categoria) {
 		return (int)this.pedidos.stream()
 		.filter(pedido -> pedido.getProducto().getCategoria() == categoria)
 		.count(); 
