@@ -1,0 +1,20 @@
+*Test:
+	
+	*ContratoDePlanta:
+			*calcularMonto(): 2 particiones: cónyuge a cargo | hijos a cargo
+
+				casos de prueba: 1) con cónyuge sin hijos
+						 2) con cónyuge y con hijos
+						 3) sin cónyuge y sin hijos
+						 4) sin cónyuge y con hijos
+	
+	*Empleado: 
+			*calcularSueldo(): 4 particiones: 
+						* >= 5 años antigüedad
+						* >= 10 años antigüedad
+						* >= 15 años antigüedad
+						* >= 20 años antigüedad
+
+						Valores de borde: 4, 5, 10, 15, 20		
+
+	

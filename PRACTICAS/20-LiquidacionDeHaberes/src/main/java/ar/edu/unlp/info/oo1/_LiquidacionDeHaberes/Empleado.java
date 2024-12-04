@@ -53,7 +53,7 @@ public class Empleado {
 	}
 	
 	public void agregarContrato(Contrato contrato) {
-		if (this.contratos.getLast().getFechaDeFin() != null && this.contratos.getLast().getFechaDeFin().isBefore(LocalDate.now()))
+		if (this.contratos.isEmpty() || this.contratos.getLast().getFechaDeFin() != null && this.contratos.getLast().getFechaDeFin().isBefore(LocalDate.now()))
 			this.contratos.add(contrato);
 		else
 			System.out.print("No se pudo agregar el contrato");
