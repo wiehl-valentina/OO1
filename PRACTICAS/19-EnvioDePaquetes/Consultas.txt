@@ -1,0 +1,19 @@
+*Test: 
+	EnvioInternacional: 
+		* 1 partición: <= 1000 gramos | > 1000 gramos. Valores de borde: 1000 y 2000.
+	
+
+	EnvioInterurbano: 
+		* 2 particiones: * < 100km | 
+				 * >= 100km y <= 500km 
+				 * > 500km
+				 Valores de borde: 99, 100, 500, 501
+
+	EnvioLocal: 
+	  	* 1 partición: con entrega rápida, sin entrega rápida. 
+
+	PersonaFisica:
+		* Es necesario testear? El funcionamiento es fijo, por más que se aplique un descuento
+		  que no se aplica a cliente corporativo. 
+		
+					
