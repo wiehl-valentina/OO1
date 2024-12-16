@@ -16,7 +16,6 @@ public abstract class Personaje {
 		this.inteligencia = inteligencia; 
 		this.fuerza = fuerza; 
 		this.rol = rol; 
-		this.rol.setPersonaje(this);
 	}
 	
 	public String getNombre() {
@@ -41,7 +40,6 @@ public abstract class Personaje {
 	
 	public void cambiarRol(Rol rol) {
 		this.rol = rol;
-		this.rol.setPersonaje(this);
 	}
 	
 	public abstract void subirNivel();

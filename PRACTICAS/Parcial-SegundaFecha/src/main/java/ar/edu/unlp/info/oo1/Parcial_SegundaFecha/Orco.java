@@ -14,13 +14,13 @@ public class Orco extends Personaje{
 	}
 	
 	public double calcularPoder(int hora) {
-		double poder = this.getRol().calcularValorBase();
+		double poder = this.getRol().calcularValorBase(this);
 		return poder += poder*this.calcularIncremento(hora);
 	}
 	
 	public void subirNivel() {
 		this.incrementarNivel();
 		if (this.getNivel() % 3 == 0)
-			this.getRol().incrementarHabilidad();
+			this.getRol().incrementarHabilidad(this);
 	}
 }
